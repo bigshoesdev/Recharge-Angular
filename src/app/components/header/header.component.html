@@ -1,0 +1,128 @@
+<!-- 
+Header types: class="{{classes}}"
+1) top-head boxed-transparent dark -- main page
+2) top-head -- other pages
+ -->
+
+<header class="{{classes}}" data-sticky="true">
+  <div class="container">
+    <!-- Logo start -->
+    <div class="logo">
+      <a routerLink="/"><img alt="" src="assets/images/logo.png" /></a>
+    </div>
+    <!-- Logo end -->
+
+    <div class="f-right responsive-nav">
+      <!-- top navigation menu start -->
+      <nav class="top-nav nav-animate to-bottom">
+        <ul>
+          <!-- HOME -->
+          <li class="mega-menu "><a routerLink="/">Home</a></li>
+          <li class="mega-menu "><a routerLink="/topup">Top-up</a></li>
+          <li class="mega-menu "><a routerLink="/account">Account</a></li>
+          <!-- FEATURES -->
+          <!-- <li><a>Features</a>
+            <ul>
+              <li><a routerLink="/">Example</a>
+                <ul>
+                  <li><a routerLink="/">Example</a></li>                  
+                  <li><a routerLink="/">Example</a>
+                    <ul>
+                      <li><a routerLink="/">Example</a></li>
+                      <li><a routerLink="/">Example</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+          </li> -->
+          <!-- PAGES -->
+          <li><a>Pages</a>
+            <ul>
+              <li><a routerLink="/about-us">About us</a></li>
+              <li><a routerLink="/faq">FAQ</a></li>
+              <li><a routerLink="/login">Login</a></li>
+              <li><a routerLink="/registration">Registration</a></li>
+              <li><a routerLink="/not-found">404 Page not found</a></li>
+              <li><a routerLink="/account">Account</a></li>
+              <li><a routerLink="/topup">▪ Send Top-Up</a></li>
+              <li><a routerLink="/cheapcalls">▪ Buy minutes</a></li>
+              <li><a routerLink="/terms-conditions">Terms conditions</a></li>
+              <li><a routerLink="/privacy-statement">Privacy statement</a></li>
+              <li><a routerLink="/first-instruction">::: First instruction</a></li>  
+              <!-- <li><a routerLink="/home">Home(dev)</a></li>      -->
+            </ul>
+          </li>
+
+          <li *ngIf="isAdmin()" class="mega-menu"><a routerLink="/admin-panel" style="color: orange">Admin panel</a></li>
+
+        </ul>
+      </nav>
+      <!-- top navigation menu end -->
+
+      <!-- <div class="f-right">
+        <div class="top-search">
+          <a routerLink="/" class="main-color"><span class="fa fa-search"></span></a>
+          <div class="search-box">
+            <input type="text" name="t" placeHolder="Type And Hit Enter..." />
+          </div>
+        </div>
+
+         <div class="top-cart">
+          <a routerLink="/"><span class="fa fa-shopping-cart"></span><i class="cart-num main-bg white">3</i></a>
+          <div class="cart-box">
+            <div class="empty hidden">Your shopping cart is empty!</div>
+            <div class="mini-cart">
+              <ul class="mini-cart-list">
+                <li>
+                  <a class="cart-mini-lft" href="product-left-bar.html"><img src="assets/images/shop/pro-1.jpg" alt=""></a>
+                  <div class="cart-body">
+                    <a href="product-left-bar.html">Ultimate Fashion Wear White</a>
+                    <div class="price">$150</div>
+                  </div>
+                  <a class="remove" href="#"><i class="fa fa-times" title="Remove"></i></a>
+                </li>
+                <li>
+                  <a class="cart-mini-lft" href="product-left-bar.html"><img src="assets/images/shop/pro-2.jpg" alt=""></a>
+                  <div class="cart-body">
+                    <a href="product-left-bar.html">Fashion Wear White</a>
+                    <div class="price">$50</div>
+                  </div>
+                  <a class="remove" href="#"><i class="fa fa-times" title="Remove"></i></a>
+                </li>
+                <li>
+                  <a class="cart-mini-lft" href="product-left-bar.html"><img src="assets/images/shop/pro-3.jpg" alt=""></a>
+                  <div class="cart-body">
+                    <a href="product-left-bar.html">Ultimate Fashion</a>
+                    <div class="price">$220</div>
+                  </div>
+                  <a class="remove" href="#"><i class="fa fa-times" title="Remove"></i></a>
+                </li>
+              </ul>
+              <div class="mini-cart-total">
+                <div class="clearfix">
+                  <div class="f-left">Sub-Total:</div>
+                  <div class="f-right">$230.00</div>
+                </div>
+                <div class="clearfix">
+                  <div class="f-left">Tax (-10.00):</div>
+                  <div class="f-right">$12.05</div>
+                </div>
+                <div class="clearfix total">
+                  <div class="f-left"><strong>Total:</strong></div>
+                  <div class="f-right">$200.20</div>
+                </div>
+              </div>
+              <div class="checkout">
+                <a class="btn main-bg" href="cart.html">View Cart</a><a class="btn btn-default" href="checkout.html">Checkout</a>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+      </div> -->
+
+    </div>
+  </div>
+</header>

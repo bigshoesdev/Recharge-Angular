@@ -1,0 +1,172 @@
+p, tbody
+    color: #666
+    text-shadow: none
+
+
+.btn:not(.cell-btn)
+    line-height: 55px
+
+
+
+.welcome-section
+    padding: 30px 0 0 0
+    h2
+        margin: 0
+
+.tabs-section
+    padding: 30px 0
+
+.nav-tabs
+    margin: 0
+    @media (max-width: 992px)
+        display: flex
+        flex-direction: column        
+    &>li:first-child
+        border-left: none
+    li
+        a
+            background: #f7f7f7
+    
+
+
+// Tabs
+div[id^="tab-"]
+    padding: 1px !important
+    .row
+        margin: 0
+        padding: 0 15px
+
+
+// ZONE        
+.zone
+    margin: 30px 0 0 0
+    display: block
+    display: flex
+    flex-direction: column
+.zone-1-A
+    //margin: 15px 0 0 0
+        
+        
+
+.tab-pane
+    padding: 5px
+    margin: 0
+    .row
+        //background: #f1f1f1
+        //background: white
+
+#tab-1
+
+.zone-1-A
+    //background: white
+    //height: 50px
+    .btn
+        display: block
+        font-size: 20px
+        i
+            float: left
+
+
+// MICROCARD
+.micro-cards
+    @media (max-width: 992px) and (min-width: 620px)
+        display: flex
+        flex-direction: row
+        .zone
+            width: 33.333%
+            float: left
+            margin-top: 0   
+
+.mikro-card
+    color: white
+    text-align: center
+    h1
+        color: white
+        margin: 0
+
+    .fun-info
+        color: white
+
+
+// LIGHT-CARDS
+.light-cards
+    float: left
+    display: flex
+    align-items: stretch
+    text-shadow: none
+.light-card
+    color: #666
+    .bg
+        height: 100%
+        position: relative
+        padding-bottom: 60px
+    .in-lc
+      padding: 15px  
+      margin-top: 6px 
+    .btn
+        width: 100%
+        color: green
+        border-color: green
+        bottom: 0
+        position: absolute        
+        &:hover
+            color: white
+            background: #6dab3c
+// lg-tab-txt
+.lg-tab-txt
+    color: #666
+
+
+
+
+//////////////////////
+// Purchase History //
+//////////////////////
+
+// variant-empty
+.variant-empty
+    h2
+        margin: 0 0 10px
+    .big-btn
+        margin: 0 7.5px
+
+
+
+////////////////
+// My profile //
+////////////////
+#tab-5
+    .light-cards
+        width: 100%
+        .bg
+            padding: 0
+        .btn
+            width: initial
+            position: relative
+            i
+                line-height: 50px
+        .btn-fb
+            color: white
+            background: #3b5998
+            border: none
+            &:hover
+                opacity: .8
+        .btn-goo
+            border-color: black
+            color: black
+            background: white
+            &:hover
+                background: rgba(255, 255, 255, 0)            
+            i
+                color: #EA4335
+    .social-card
+        .bg
+            width: 50%
+            float: left
+            &:last-child
+                border-left: solid 5px white          
+    h2
+        margin-bottom: 10px
+        color: #3fa9f5
+
+

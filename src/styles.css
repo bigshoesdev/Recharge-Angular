@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+
+body, html {
+    height: 100%!important;
+}
+
+/* colors */
+.darck-grey-bg {
+    background: #666;
+}
+._777-grey-bg {
+    background: #777;
+}
+._999-grey-bg {
+    background: #999;
+}
+.cool-bg {
+    background: #337ab7;
+}
+.light-gray-bg {
+    background: #f7f7f7;
+}
+.light-gray {
+    color: #f1f1f1;  
+}
+
+/* hovers */
+.h-red:hover { background: red; }
+
+/* Extend Bootstrap */
+.col-md-half {
+   display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+    width: 4.166666667%;
+}
+
+
+
+/* SPACES */
+div[class^="v-space-"] {
+    float: left;
+    width: 100%;
+}
+.v-space-1  { height:  1px }
+.v-space-5  { height:  5px }
+.v-space-10 { height: 10px }
+.v-space-15 { height: 15px }
+.v-space-20 { height: 20px }
+.v-space-25 { height: 25px }
+.v-space-30 { height: 30px }
+.v-space-35 { height: 35px }
+.v-space-40 { height: 40px }
+.v-space-60 { height: 60px }
+
+/* UNIVERSAL */
+._100 {
+    width: 100%;
+}
+
+/* container */
+.center-c { 
+    text-align: center;
+}
+.left-c { 
+    text-align: left;
+}   
+
+/* LOGO */
+.logo  img {
+    max-width: 50%;
+    /* -webkit-filter: hue-rotate(30deg);
+    filter: hue-rotate(30deg); */
+    /* filter: hue-rotate(228deg);
+    opacity: 0.8; */
+}
+
+
+
+/* spec */
+@media (max-width: 992px) {
+    .if-more-992 {
+        display: none;
+    }
+}
+@media (min-width: 992px) {
+    .if-less-992 {
+        display: none;
+    }
+}
+
+select {
+    font-size: 18px;
+    height: 40px;    
+}
+
+.narrow {
+    max-width: 600px;
+    padding: 0;
+}
+
+/* For Google Translate */
+#google_translate_element{
+    z-index: 99999;
+    right: 10px;
+    position: absolute;
+    transform: rotate(-90deg);
+    right: -59px;
+    top: 108px;
+}
+iframe .goog-te-banner-frame {
+    top: -20px;
+}
+.skiptranslate {
+    /* margin-top: -600px; */
+    background: red;
+}
+.goog-te-banner-frame {
+    top: -40px !important;
+}
+/* !!! Not works on server */
+/* .goog-te-gadget-simple{
+    padding: 30px 15px;
+    border: none;
+} */

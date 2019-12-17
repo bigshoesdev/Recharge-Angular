@@ -1,0 +1,99 @@
+<!-- <div class="col-md-6 col-md-offset-3">
+    <h1>Hi {{currentUser.firstName}}!</h1>
+    <p>You're logged in with the MEAN Stack & Angular 2!!</p>
+    <h3>All registered users:</h3>
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            - <a (click)="deleteUser(user._id)">Delete</a>
+        </li>
+    </ul>
+    <p><a [routerLink]="['/login']">Logout</a></p>
+</div> -->
+
+<div class="pageWrapper">
+
+    <!-- <header-component classes='top-head'></header-component> -->
+
+    <div id="contentWrapper">
+
+        <div class="pageContent">
+
+            <div class="section welcome-section">
+                <div class="container">
+
+
+                    <div class="dn-snippet center-c" id="dn-snippet-termsconditions">
+                        <h2>API test</h2>
+
+
+
+                        <hr>
+                        <!-- start     -->
+                        <div style="border: solid gray 1px;">
+                            <!-- <form 
+                                id="form" 
+                                name="form" 
+                                (ngSubmit)="f.form.valid && iframeSubmit()" 
+                                #f="ngForm" 
+                                novalidate>
+                                <br>
+                                <input 
+                                    type="text" 
+                                    placeholder="Enter message" 
+                                    name="message"
+                                    [(ngModel)]="msgIframe">
+                                <input 
+                                    type="submit" 
+                                    value="Click to send">
+                                <br>
+                            </form>
+                            <hr> -->
+<!-- 127.0.0.1 -->
+<!-- http://r4.okm.pub/ -->
+<!-- works on server - http://r4.okm.pub:3600 -->
+<!-- works on local - src="http://127.0.0.1:3600"  -->
+<!-- {{apiUrl}} -->
+                            <iframe 
+                                    class="iframe"
+                                    src="http://r4.okm.pub:3600"
+                                    id="iframe">
+                            </iframe>  
+                        </div>
+                        <hr>                        
+                        <!-- end -->
+ 
+
+
+                        <button (click)="getAllUsers()">get all users</button>
+                        <hr>
+
+                        <button (click)="test()">Test</button>
+                        <hr>
+
+                        <button (click)="openCheckout()">Purchase</button>
+                        <hr>
+
+                        <a (click)="chargeStripe()" class="btn main-bg btn-lg shape new-angle t-center big-btn" type="button">Charge Stripe</a>
+                        <hr>
+
+                        <a (click)="sendVerifiedMail()" class="btn main-bg btn-lg shape new-angle t-center big-btn" type="button">Send verified mail</a>
+                        <hr>
+
+                        <h4>Send mail</h4>
+                        <input type="text" name="mail" value="value" [(ngModel)]="mailAim">
+                        <a (click)="sendMail(mailAim)" class="btn main-bg shape new-angle t-center " type="button">Sent <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <footer-component></footer-component> -->
+
+    </div>
+
+</div>

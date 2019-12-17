@@ -1,0 +1,126 @@
+<div class="pageWrapper">
+
+
+  <top-bar></top-bar>
+
+  <header-component classes='top-head'></header-component>
+
+
+
+  <div id="contentWrapper">
+
+    <div class="pageContent">
+
+      <div class="page-title title-1">
+        <div class="container">
+          <div class="row">
+            <h1>Register Style 2</h1>
+            <h3>This is sub heading text to describe the page functionality</h3>
+
+            <div class="breadcrumbs">
+              <a href="#">Home</a><i class="fa fa-long-arrow-right main-color"></i><a href="#">Pages</a><i class="fa fa-long-arrow-right main-color"></i><span>Register Style 2</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="login-box-lg">
+              <div class="heading centered padding-vertical-20">
+                <i class="fa fa-info-circle tbl main-color"></i>
+                <h3 class="uppercase head-4 bold">Registeration Form</h3>
+              </div>
+
+              <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
+                      <label for="firstName">First Name<span class="red">*</span></label>
+                      <input type="text" class="form-control shape" name="firstName" [(ngModel)]="model.first_name" #firstName="ngModel" required />
+                      <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
+                  </div>
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+                      <label for="lastName">Last Name<span class="red">*</span></label>
+                      <input type="text" class="form-control shape" name="lastName" [(ngModel)]="model.last_name" #lastName="ngModel" required />
+                      <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
+                  </div>
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                      <label for="username">Username<span class="red">*</span></label>
+                      <input type="text" class="form-control shape" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+                      <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                  </div>
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                      <label for="email">Email<span class="red">*</span></label>
+                      <input type="email" class="form-control shape" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+                      <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+                  </div>                    
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                      <label for="password">Password<span class="red">*</span></label>
+                      <input type="password" class="form-control shape" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                  </div>
+                  <div class="form-group">
+                      <button [disabled]="loading" class="btn btn-lg main-bg btn-block shape">Submit</button>
+                      <img *ngIf="loading" class="form_preloader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                  </div>
+              </form>
+
+
+
+              <!-- <form action="#" id="reg_form">
+                <div class="form-input">
+                  <label>First name<span class="red">*</span></label><input type="text" class="form-control shape" required>
+                </div>
+                <div class="form-input">
+                  <label>Last name<span class="red">*</span></label><input type="text" class="form-control shape" required>
+                </div>
+                <div class="form-input">
+                  <label>Password<span class="red">*</span></label><input type="password" class="form-control shape" required>
+                </div>
+                <div class="form-input">
+                  <label>Confirm Password<span class="red">*</span></label><input type="password" class="form-control shape"
+                    required>
+                </div>
+                <div class="form-input">
+                  <label>Email<span class="red">*</span></label><input type="email" class="form-control shape" required>
+                </div>
+                <div class="form-input">
+                  <label>Confirm Email<span class="red">*</span></label><input type="email" class="form-control shape" required>
+                </div>
+                <div class="form-input">
+                  <label>Country<span class="red">*</span></label>
+                  <select class="shape" required>
+				    							<option selected="">Please select a country</option>  
+												<option value="AF">Australia</option>  
+												<option value="AL">Canada</option>
+												<option value="EG">Egypt</option>
+												<option value="AS">Russia</option>
+												<option value="AD">USA</option>
+				    						</select>
+                </div>
+
+
+                <div class="form-input">
+                  <span class="floated-item"><input type="checkbox" class="checkbox" name="Hobby_Drawing" value="Drawing" /> <span> I have read and accept the terms of use!</span></span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-input margin-top-20 clearfix">
+                  <input type="submit" class="btn btn-lg main-bg btn-block shape" value="Submit">
+                </div>
+              </form> -->
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <footer-component></footer-component>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+
+@import "colors.sass";
+
+// STANDARD BIG BUTTONS
+
+.btn
+    &:disabled 
+        opacity: .5
+        background: gray
+        border: #333
+        &:hover
+            background: #222
+
+
+.big-btn
+    font-size: 20px
+    span
+        vertical-align: middle
+    i 
+        font-size: 40px
+        vertical-align: middle
+        height: 45px
+
+
+.send-button
+    width: max-content
+    background-color: rgba(63, 169, 245, 1)
+    border: solid 2px white
+    color: white
+    font-weight: 500
+    
+    &:hover
+        background-color: rgba(63, 169, 245, .7)
+        // background: $main
+        color: white
+        padding: 6px 20px
+        i
+            transform: rotate(46deg)
+    i
+        font-size: 20px
+        line-height: 40px
+        // transform: rotate(45deg)
+
+
+.btn-input-right
+    display: inline-block
+    font-size: 40px
+    line-height: 50px
+    text-align: center
+    width: 15%
+    // display: flex
+    align-items: center
+    height: 54px
+    // display: block
+    border-bottom-right-radius: 5px
+    border-top-right-radius: 5px
+    i
+        margin: 0
+        color: white
+        
+.cell-btn
+    float: right
+    line-height: 28px
+    white-space: nowrap
+
+
+// button
+.btn
+    .fa-trash
+        margin: 0 0 0 0 !important

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Recharge</title>
+  <base href="/">
+
+  <!-- Mobile Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- google shadespiritenator -->
+  <meta name="google-site-verification" content="DbJFR0Px9mJs6wHAenwzoA3QEikW17hUEKByFYG5xHE" />
+
+  <!-- Put favicon.ico and apple-touch-icon(s).png in the images folder -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <meta name="description" content=" ... ">
+  <meta name="author" content="OKM">
+
+  <!-- CSS StyleSheets -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="assets/css/assets.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link id="theme_css" rel="stylesheet" href="assets/css/light.css">
+
+  <!-- REVOLUTION SLIDER STYLES -->
+  <link rel="stylesheet" href="assets/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" type="text/css">
+  <link rel="stylesheet" href="assets/revolution/css/settings.css" type="text/css">
+  <link rel="stylesheet" href="assets/revolution/css/layers.css" type="text/css">
+  <link rel="stylesheet" href="assets/revolution/css/navigation.css" type="text/css">
+
+  <!--[if lt IE 9]>
+      <script type="text/javascript" src="assets/js/html5.js"></script>
+    <![endif]-->
+
+  <!-- Skin CSS file -->
+  <!-- <link id="skin_css" rel="stylesheet" href="assets/css/skins/default.css"> -->
+  <link id="skin_css" rel="stylesheet" href="assets/css/skins/13.css">
+
+  <!-- Sweet Alert -->
+  <link rel="stylesheet" href="assets/css/plugins/sweetalert2.min.css">
+  <script type="text/javascript" src="assets/js/plugins/sweetalert.min.js"></script>
+
+  <!-- intl Input Phone -->
+  <!-- <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/plugins/intlInputPhone.css"> -->
+
+  <!-- Stripe -->
+  <!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+
+
+
+</head>
+
+
+<body id="body">
+
+  <!-- Google translator - BEGIN -->
+  <!-- https://support.google.com/translate/answer/2534601?hl=ru&amp;roistat_visit=7311191 -->
+  <!-- <div id="google_translate_element"></div> -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'bs,da,de,el,en,es,ha,hi,ig,it,iw,ja,ka,ko,no,pl,ru,yo,zh-CN,zh-TW',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- blocking body changes -->
+  <script>
+    var target = document.getElementById('body');
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutationRecord) {
+        // console.log('style changed!')
+        target.style.top = "0";
+      });
+    });
+    observer.observe(target, { attributes: true, attributeFilter: ['style'] });
+  </script>
+  <!-- Google translator - END -->
+
+
+  <app-root></app-root>
+</body>
+
+
+<!-- Load JS plugins file -->
+<script type="text/javascript" src="assets/js/assets.min.js"></script>
+
+<!-- SLIDER REVOLUTION  -->
+<script type="text/javascript" src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+    (Load Extensions only on Local File Systems !  +
+    The following part can be removed on Server for On Demand Loading) -->
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<!-- END SLIDER REVOLUTION 5.0 EXTENSIONS -->
+
+<script type="text/javascript">
+    var tpj = jQuery;
+    var revapi48;
+    tpj(window).load(function () {
+      if (tpj("#slider").revolution == undefined) {
+        revslider_showDoubleJqueryError("#slider");
+      } else {
+        revapi48 = tpj("#slider").show().revolution({
+          sliderType: "standard",
+          jsFileLocation: "assets/revolution/js/",
+          sliderLayout: "fullscreen",
+          dottedOverlay: "none",
+          delay: 2000,
+          navigation: {
+            keyboardNavigation: "on",
+            keyboard_direction: "horizontal",
+            mouseScrollNavigation: "off",
+            onHoverStop: "off",
+            touch: {
+              touchenabled: "on",
+              swipe_threshold: 75,
+              swipe_min_touches: 1,
+              swipe_direction: "horizontal",
+              drag_block_vertical: false
+            },
+            arrows: {
+              style: "gyges",
+              enable: true,
+              hide_onmobile: false,
+              hide_onleave: false,
+              tmp: '',
+              left: {
+                h_align: "left",
+                v_align: "center",
+                h_offset: 10,
+                v_offset: 0
+              },
+              right: {
+                h_align: "right",
+                v_align: "center",
+                h_offset: 10,
+                v_offset: 0
+              }
+            },
+            bullets: {
+              enable: false,
+              hide_onmobile: false,
+              style: "gyges",
+              hide_onleave: false,
+              direction: "horizontal",
+              h_align: "center",
+              v_align: "top",
+              h_offset: 0,
+              v_offset: 20,
+              space: 5,
+              tmp: ''
+            }
+          },
+          parallax: {
+            type: "mouse",
+            origo: "slidercenter",
+            speed: 2000,
+            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+          },
+          responsiveLevels: [1240, 1024, 778, 480],
+          gridwidth: [1240, 1024, 778, 480],
+          gridheight: [868, 768, 960, 720],
+          lazyType: "none",
+          shadow: 0,
+          spinner: "off",
+          stopLoop: "on",
+          stopAfterLoops: 0,
+          stopAtSlide: 1,
+          shuffle: "off",
+          autoHeight: "off",
+          fullScreenAlignForce: "off",
+          fullScreenOffsetContainer: "",
+          fullScreenOffset: "",
+          disableProgressBar: "on",
+          hideThumbsOnMobile: "off",
+          hideSliderAtLimit: 0,
+          hideCaptionAtLimit: 0,
+          hideAllCaptionAtLilmit: 0,
+          debugMode: false,
+          fallbacks: {
+            simplifyAll: "off",
+            nextSlideOnWindowFocus: "off",
+            disableFocusListener: false,
+          }
+        });
+
+        revapi48.bind("revolution.slide.onchange", function (e, data) {
+          if ($('.top-head').hasClass('transparent') || $('.top-head').hasClass('boxed-transparent')) {
+            if ($('#slider ul > li').eq(data.slideIndex - 1).hasClass('dark')) {
+              $('.top-head').removeClass('not-dark');
+              $('.top-head').addClass('dark');
+              var logo = $('.logo').find('img').attr('src').replace("logo.png", "logo-light.png");
+              $('.logo').find('img').attr('src', logo);
+            } else {
+              $('.top-head').removeClass('dark');
+              $('.top-head').addClass('not-dark');
+              var logo = $('.logo').find('img').attr('src').replace("logo-light.png", "logo.png");
+              $('.logo').find('img').attr('src', logo);
+            }
+            if ($('.top-head').hasClass('sticky-nav')) {
+              var logo = $('.logo').find('img').attr('src').replace("logo-light.png", "logo.png");
+              $('.logo').find('img').attr('src', logo);
+            }
+          }
+        });
+      }
+    });	/*ready*/
+</script>
+
+<!-- general script file -->
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+
+<!-- intl Input Phone -->
+<script type="text/javascript" src="assets/js/plugins/intlInputPhone.js"></script>
+
+
+
+
+<!-- <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+
+
+</html>

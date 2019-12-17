@@ -1,0 +1,130 @@
+<div class="pageWrapper">
+
+  <header-component classes='top-head'></header-component>
+
+  <div id="contentWrapper">
+
+    <div class="pageContent">
+
+      <div class="section ">
+        
+        <div class="container narrow center-c">
+
+          <h2 class="">Buy International Calls</h2>
+
+          <div class="left-c">
+
+
+            <form class="pay-form" id="pay-form" name="pay-form" (ngSubmit)="f.form.valid && openCheckout(st.selectedCredit)" #f="ngForm"
+              novalidate>
+
+
+              <!-- <div class="form-input">
+                <label> <i class="fa fa-globe"></i> &nbsp; Where will you be calling from?</label>
+                <select [(ngModel)]="st.selectedCountry1" name="country1" required>
+                  <option disabled hidden [value]="selectUndefinedOptionValue">- Please select a country -</option>
+                  <option *ngFor="let c of [{name: 'USA'}, {name: 'Canada'}]" [ngValue]="c">{{c.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-input">
+                <label> <i class="fa fa-globe"></i> &nbsp; Where will you call most?</label>
+                <select [(ngModel)]="st.selectedCountry2" name="country2" required>
+                  <option disabled hidden [value]="selectUndefinedOptionValue">- Please select a country -</option>
+                  <option *ngFor="let c of [{name: 'USA'}, {name: 'Canada'}]" [ngValue]="c">{{c.name}}</option>
+                </select>
+              </div> -->
+
+              <div class="form-input">
+                <label> <i class="fa fa-money"></i> &nbsp; Credit to add?</label>
+                <select [(ngModel)]="st.selectedCredit" name="credot" required>
+                  <option disabled hidden [value]="selectUndefinedOptionValue">- From $5 to $100 USD -</option>
+                  <option *ngFor="let c of [.01, 5, 10, 15, 25, 50, 100]" [ngValue]="c">{{c}}</option>
+                </select>
+              </div>
+
+              <!-- <div class="form-group form-input center-c">
+                <button [disabled]="!f.valid" class="btn main-bg btn-lg shape new-angle t-center big-btn">Proceed to checkout <i class="fa fa-angle-right"></i></button>
+                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                />
+              </div> -->
+            </form>
+
+            <div class="v-space-30"></div>
+
+
+            <div class="form-panel" *ngIf="st.selectedCredit">
+              <h4>Pay using: &nbsp;</h4>
+              <!-- PayPAl Form -->
+              <form class="payPal-form" ngNoForm action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="hosted_button_id" value="Y96LMPWSPL9D4">
+                <INPUT TYPE="hidden" name="charset" value="utf-8">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="shadespiritenator-facilitator@gmail.com">
+                <input type="hidden" name="item_name" value="{{currentUser._id}}">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="amount" value="{{st.selectedCredit}}">
+                <input type="hidden" name="cancel_return" value="{{domenName}}/account">
+                <input type="hidden" name="return" value="{{domenName}}/account">
+                <input type="hidden" name="notify_url" value="{{domenName}}:3600/api/after-paypal-ipn">
+                <input type="image" name="submit" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" alt="Make payments with PayPal - it's fast, free and secure!">
+              </form>
+            </div>
+
+            <!-- <form ngNoForm action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="Y96LMPWSPL9D4">
+            <table>
+            <tr><td><input type="hidden" name="on0" value="Ammount">Ammount</td></tr><tr><td><select name="os0">
+              <option value="1">0.01 $,01 USD</option>
+              <option value="5">5 $5,00 USD</option>
+              <option value="10">10 $10,00 USD</option>
+              <option value="20">20 $20,00 USD</option>
+              <option value="50">50 $50,00 USD</option>
+              <option value="100">100 $100,00 USD</option>
+            </select> </td></tr>
+            </table>
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" width="1" height="1">
+            </form>  -->
+
+
+          </div>
+          <!-- left-c -->
+
+          <div id="dn-ildterms">
+            By clicking 'Proceed to payment' you agree to Dings <strong></strong>
+            <strong><a target="_blank" href="/terms-conditions">Terms &amp; Conditions</a></strong> and
+            <strong><a target="_blank" href="/privacy-statement">Privacy Statement</a></strong>
+          </div>
+
+        </div>
+        <!-- container -->
+      </div>
+      <!-- section -->
+
+
+    </div>
+
+    <footer-component></footer-component>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- DEV PANEL -->
+<!-- | -->
+<!-- | -->
+<div *ngIf="devMode" class="state-panel">
+  <h4>state: {{st | jsonFormat}}</h4>
+  {{st.selectedCountry1 | json}} {{st.selectedCountry2 | json}} {{st.selectedCredit | json}}
+</div>
+<!-- | -->
+<!-- | -->
+<!-- DEV PANEL -->

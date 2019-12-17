@@ -1,0 +1,448 @@
+<div class="pageWrapper">
+
+  <header-component classes='top-head'></header-component>
+
+  <div id="contentWrapper">
+
+    <div class="pageContent">
+
+      <div class="section welcome-section">
+        <div class="container">
+            <h2>Welcome <strong>{{currentUser.username}}</strong> !</h2>
+        </div>        
+      </div>  
+
+      <div class="section tabs-section">
+        <div class="container">
+          <!-- Tabs Menu -->
+          <div class="tabs-style-lg tabs-style-bg">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a id="tab-i-1" href="#tab-1"> <span>Account  <br class="if-more-992">Overview</span></a></li>
+              <li role="presentation" class="">      <a id="tab-i-2" href="#tab-2"> <span>Purchase <br class="if-more-992">History</span></a></li>
+              <li role="presentation" class="">      <a id="tab-i-3" href="#tab-3"> <span>Saved    <br class="if-more-992">Numbers</span></a></li>
+              <!-- <li role="presentation" class="">      <a id="tab-i-4" href="#tab-4"> <span>International <br class="if-mores-992">Calls</span></a></li> -->
+              <li role="presentation" class="">      <a id="tab-i-5" href="#tab-5"> <span>My <br class="if-more-992">Profile</span></a></li>
+            </ul>
+          </div>
+          <!-- Tabs Pages -->
+          <div class="tab-content main-bg">
+
+
+            <!-- 1 -->
+            <div id="tab-1" role="tabpanel" class="tab-pane fade active in">
+              <div class="row white-bg">
+                <!-- A -->
+                <div class="col-md-6 zone zone-1-A">
+                  <a class="btn btn-lg left-icon btn-green green-bg" routerLink="/topup"><i class="fa fa-send"></i>Send top-up</a>
+                  <div class="v-space-15"></div>
+                  <a class="btn btn-lg left-icon btn-violet main-bg" routerLink="/cheapcalls"><i class="fa fa-credit-card"></i>Buy minutes</a>
+                  <div class="v-space-15"></div>
+                </div>
+
+                <!-- MICROCARDS -->
+                <div class="micro-cards">
+                  <div class="col-sm-4 col-md-2  zone zone-1-B">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX" data-animate="flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-shopping-cart"></i></div>
+                        <div class="fun-number bolder"> {{purchases_made.length}} </div>
+                      <div class="fun-info t-center">Purchases<br>made</div>
+                    </div>             
+                  </div>
+                  <div class="col-sm-4 col-md-2 zone zone-1-C">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX" data-animate="flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-list"></i></div>
+                        <div class="fun-number bolder"> {{saved_numbers.length}} </div>
+                      <div class="fun-info t-center">Saved<br>numbers</div>
+                    </div>                    
+                  </div>
+                  <div class="col-sm-4 col-md-2 zone zone-1-D">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX" data-animate="flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-money"></i></div>
+                        <div class="fun-number bolder"> {{balance}} </div>
+                      <div class="fun-info t-center">Call<br>Balance</div>
+                    </div>                    
+                  </div>
+                </div>
+                
+                <div class="v-space-30"></div>
+
+                 <div class="light-cards">
+
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 green-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-calendar main-color no-after"></i>
+                          <h3 class="bold uppercase">Recent history</h3>
+                          <p>
+                            No top-ups listed?
+                            <br><br>
+                            Send a top-up and we’ll list your recent transactions when you login again.
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" routerLink="/topup"><i class="fa fa-send"></i>Send top-up</a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 blue-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-star main-color no-after"></i>
+                          <h3 class="bold uppercase">Top-up favourites</h3>
+                          <p>
+                            No top-ups listed?
+                            <br><br>
+                            Send a top-up and we’ll list your recent transactions when you login again.
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" (click)="change_tab(3)" ><i class="fa fa-plus"></i>Add top-up contacts</a>                 
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 darck-grey-bg"></div>
+                    <div class="light-gray-bg bg">
+                        <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-tags main-color no-after"></i>
+                          <h3 class="bold uppercase">Top-up promos</h3>
+                          <p>
+                            No top-ups listed?
+                            <br><br>
+                            Add the people you top-up to contacts and we’ll post <strong>promotions especially for them</strong> here                     
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" (click)="change_tab(3)" ><i class="fa fa-plus"></i>Add top-up contacts</a>              
+                    </div>                  
+                  </div>
+                </div> 
+
+                <!-- <div class="v-space-30"></div> -->
+              </div>
+            </div>
+
+
+            <!-- 2 -->
+            <div id="tab-2" role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>
+
+                <!-- variant-empty -->
+                <div class="variant-empty center-c" *ngIf="purchases_made.length == 0">
+                  <h2>Your Ding Purchase History</h2>
+                  <p>You have not made any purchases yet. <br>
+                      When you do, we will store the details here so that you can keep track of <br>
+                      who you topped up, when you topped them up and by how much <br>
+                  </p>
+                  <a [routerLink]="['/topup']" class="btn main-bg btn-lg shape new-angle t-center big-btn form-button">Send Top-up</a>
+                  <a [routerLink]="['/topup']" class="btn main-bg btn-lg shape new-angle t-center big-btn form-button">cheapcalls</a>
+                  
+                </div>
+                <!-- variant-empty END -->
+
+                <!-- variant exist -->
+                <div *ngIf="purchases_made.length>0" class="col-md-12 table-row" >
+                  <table class="table-style2" style="width:100%">
+                    
+                    <thead>
+                      <tr>
+                        <th class="main-bg">Payment date</th>
+                        <th class="main-bg">Payment gross</th>
+                        <th class="main-bg">Currency</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let el of purchases_made; let even = even; let odd = odd" 
+                          [ngClass]="{ odd: odd }">
+                          <td>{{el.payment_date}}</td>
+                          <td>{{el.payment_gross}}</td>
+                          <td>{{el.mc_currency}}</td>
+                      </tr>                     										
+                    </tbody>
+                  </table>
+                  <!-- <div class="v-space-30"></div> -->
+                </div>
+                <!-- variant exist END -->
+
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div id="tab-3"role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>
+
+                <!-- variant-empty -->
+                <div class="variant-empty center-c" *ngIf="saved_numbers.length == 0">
+                  <h2>Your Ding Numbers History</h2>
+                  <p>You have not made any numbers yet. <br>
+                      When you do, we will store the details here so that you can keep track of <br>
+                      who you topped up, when you topped them up and by how much <br>
+                  </p>
+                  <a [routerLink]="['/topup']" class="btn main-bg btn-lg shape new-angle t-center big-btn form-button">Send Top-up</a>
+                  <a [routerLink]="['/topup']" class="btn main-bg btn-lg shape new-angle t-center big-btn form-button">cheapcalls</a>
+                  
+                </div>
+                <!-- variant-empty END -->
+
+                <!-- variant exist -->
+                <div *ngIf="saved_numbers.length>0" class="col-md-6 table-row" >
+                  <table class="table-style2" style="width:100%">
+                    
+                    <thead>
+                      <tr>
+                        <th class="main-bg">Saved numbers</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let el of saved_numbers; let even = even; let odd = odd; let idx = index;" 
+                          [ngClass]="{ odd: odd }">
+                          <td>
+                            <div class="cell-row-0">
+                              {{el}}
+                              <div class="cell-row-btns">
+                                <a class="btn btn-md shape btn-turquoise new-angle _999-grey-bg h-red cell-btn clear" (click)="del_number(idx)" ><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-md shape btn-turquoise new-angle main-bg cell-btn"                  (click)="topup_number(el)" ><i class="fa fa-send"></i>Top-up</a>
+                              </div>
+                            </div>
+                          </td>
+                      </tr>                     										
+                    </tbody>
+                  </table>  
+                </div>
+                <!-- variant exist END -->
+
+                <!-- <div class="v-space-30 if-less-992"></div> -->
+
+                <div *ngIf="saved_numbers.length>0" class="col-md-6 table-row" >
+                  <table class="table-style2" style="width:100%">
+                    
+                    <thead>
+                      <tr>
+                        <th class="main-bg">Add number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="">
+                          <td>
+                            <div class="cell-row">
+                              <input class="cell-input" type="text" [(ngModel)]="new_number" >
+                              <a class="btn btn-md shape btn-turquoise new-angle main-bg cell-btn" (click)="add_number(new_number)"><i class="fa fa-plus"></i>Add</a>
+                            </div>
+                          </td>
+                      </tr>                     										
+                    </tbody>
+                  </table>  
+                </div>                
+              
+                <!-- <div class="v-space-30"></div> -->
+              </div>
+            </div>
+
+            <!-- 4 -->
+             <div id="tab-4" role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <!-- A -->
+                <div class="col-md-6 zone zone-1-A">
+                  <a class="btn btn-lg left-icon btn-violet main-bg" routerLink="/cheapcalls"><i class="fa fa-credit-card"></i>Buy minutes</a>
+                  <div class="v-space-15"></div>
+                </div>
+
+                <!-- MICROCARDS -->
+                <div class="micro-cards">
+                  <div class="col-sm-4 col-md-2  zone zone-1-B">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-money"></i></div>
+                      <h1>0</h1>
+                      <div class="fun-info t-center">Call<br>Balance</div>
+                    </div>             
+                  </div>
+                  <div class="col-sm-4 col-md-2 zone zone-1-C">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-ticket"></i></div>
+                      <h1>0</h1>
+                      <div class="fun-info t-center">Access<br>Number</div>
+                    </div>                     
+                  </div>
+                  <div class="col-sm-4 col-md-2 zone zone-1-D">
+                    <!-- mikro-card -->
+                    <div class="mikro-card cool-bg fun shape lg fx new-angle animated flipInX">
+                      <div class="fun-icon light-gray"><i class="fa fa-ticket"></i></div>
+                      <h1>0</h1>
+                      <div class="fun-info t-center">Pin<br>Number</div>
+                    </div>                    
+                  </div>
+                </div>
+
+                <div class="v-space-30"></div>
+
+                <div class="light-cards">
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 green-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-calendar main-color no-after"></i>
+                          <h3 class="bold uppercase">Most recent calls</h3>
+                          <p>
+                            Recent calls
+                            <br><br>
+                            As soon as you start making calls we’ll display your most recent call history here.                        
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" routerLink="/cheapcalls"><i class="fa fa-shopping-cart"></i>Buy minutes</a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 blue-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-flash main-color no-after"></i>
+                          <h3 class="bold uppercase">Speed dials</h3>
+                          <p>
+                            Speed Dialling
+                            <br><br>
+                            Once you have purchased international calls credit you can add up to 8 speed-dials to your account.      
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" routerLink="/cheapcalls"><i class="fa fa-shopping-cart"></i>Buy international calls</a>                 
+                    </div>
+                  </div>
+                  <div class="col-md-4 light-card">
+                    <div class="v-space-5 darck-grey-bg"></div>
+                    <div class="light-gray-bg bg">
+                        <div class="in-lc">
+                        <div class="icon-box-small">
+                          <i class="fa fa-unlock main-color no-after"></i>
+                          <h3 class="bold uppercase">Pinless numbers</h3>
+                          <p>
+                            Pinless calls
+                            <br><br>
+                            Numbers saved here will allow you to use your international Calls credit without having to input a PIN.            
+                          </p>
+                        </div>                        
+                      </div>
+                      <a class="btn btn-md btn-outlined btn-turquoise" routerLink="/cheapcalls"><i class="fa fa-shopping-cart"></i>Buy international Calls</a>              
+                    </div>                  
+                  </div>
+                </div>
+
+
+                
+                <div class="v-space-30"></div>
+              </div>
+            </div> 
+
+
+            <!-- 5 -->
+            <div id="tab-5"role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+
+                <div class="v-space-30"></div>
+
+                <div class="light-cards">
+
+                  <div class="col-sm-12 col-md-6 light-card">
+                    <div class="v-space-5 blue-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="">
+                          <h4>Email address</h4>
+                          <h2>{{currentUser.email}}</h2>
+                          <h4>Password</h4>
+
+                          <a *ngIf="!set_password" (click)="set_password = !set_password" class="btn btn-md btn-outlined btn-turquoise">Set/reset password</a>
+
+                          <form *ngIf="set_password" class="pass-form" id="pass-form" name="form" (ngSubmit)="f.form.valid && change_password()" #f="ngForm" >
+                            <div class="form-group form-input" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                              <label class="main-color" for="old_password">Old Password</label>
+                              <span class="fa fa-lock main-color"></span>
+                              <input type="password" class="form-control shape" name="old_password" [(ngModel)]="old_password" #password="ngModel" required
+                              />
+                              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                            </div>
+                            <div class="form-group form-input" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                              <label class="main-color" for="password">New Password</label>
+                              <span class="fa fa-lock main-color"></span>
+                              <input type="password" class="form-control shape" name="password" [(ngModel)]="new_password" #password="ngModel" required
+                              />
+                              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                            </div>
+                            <div class="form-group form-input">
+                              <button [disabled]="loading" class="btn btn-lg btn-block main-bg shape">Change</button>
+                              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                              />
+                            </div>
+                          </form>
+
+                        </div>                        
+                      </div> 
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 light-card social-card">
+                    <div class="v-space-5 blue-bg"></div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="">
+                          <h4>Facebook</h4>
+                          <h2 *ngIf="!currentUser.facebook.id" >Not connected</h2>
+                          <h2 *ngIf="currentUser.facebook.id" >Connected</h2> 
+                          <h4>Actions</h4>
+                          <a (click)="connect('facebook')" href="{{apiUrl}}/api/auth/facebook" class="btn btn-md btn-outlined btn-turquoise btn-fb"><i class="fa fa-facebook"></i>Connect</a> 
+                          <!-- <a (click)="connect('facebook')"  class="btn btn-md btn-outlined btn-turquoise btn-fb"><i class="fa fa-facebook"></i>Connect</a> -->
+                        </div>                        
+                      </div> 
+                    </div>
+                    <div class="light-gray-bg bg">
+                      <div class="in-lc">
+                        <div class="">
+                          <h4>Google</h4>
+                          <h2 *ngIf="!currentUser.google.id" >Not connected</h2>
+                          <h2 *ngIf="currentUser.google.id" >Connected</h2>                           
+                          <h4>Actions</h4>
+                          <a (click)="connect('google')" href="{{apiUrl}}/api/auth/google" class="btn btn-md btn-outlined btn-turquoise btn-goo"><i class="fa fa-google"></i>Connect</a>
+                        </div>                        
+                      </div> 
+                    </div>    
+               
+                  </div>                  
+
+                </div>
+                
+                
+                <div class="v-space-30"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <footer-component></footer-component>
+
+
+  </div>
+
+</div>
+

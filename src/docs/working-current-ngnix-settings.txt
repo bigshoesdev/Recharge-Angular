@@ -1,0 +1,36 @@
+daemon off;
+error_log /dev/error_log error;
+
+
+worker_processes 4;
+
+events {
+        worker_connections 1024;
+}
+
+http {
+
+        include mime.types;
+        default_type application/octet-stream;
+
+        sendfile on;
+        keepalive_timeout 65;
+
+    server {
+
+#       server_name r4.okm.pub;
+#       root /home/vdyachuck/recharge/recharge4ui/dist;
+
+        location / {
+                root /home/vdyachuck/recharge/recharge4ui/dist;
+                index index.html index.htm;
+                try_files $uri$args $uri$args/ $uri $uri/ /index.html =404;
+        }
+
+        location /api {
+                proxy_set_header Host $host;
+                proxy_pass http://localhost:3600/api;
+        }
+
+    }
+}

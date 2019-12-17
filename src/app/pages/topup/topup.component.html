@@ -1,0 +1,274 @@
+
+<div class="pageWrapper">
+
+  <header-component classes='top-head'></header-component>
+
+  <div id="contentWrapper">
+    <div class="pageContent">
+
+      <div class="section ">
+        
+        <div class="container narrow">
+
+          <div class="v-space-5 main-bg step-line"></div>
+
+          <!-- STEPS-INFO -->
+          <div class="steps">
+
+            <div class="step-block">
+              <div class="step circle" [ngClass]="{'main-bg': st.step==1, 'main-border': st.step!==1}">1</div>
+              <div class="order-title">Order</div>
+            </div>
+            
+            <div class="step-block">
+              <div class="step circle" [ngClass]="{'main-bg': st.step==2, 'main-border': st.step!==2}">2</div>
+              <div class="order-title">Summary</div>
+            </div>
+
+            <div class="step-block">
+              <div class="step circle" [ngClass]="{'main-bg': st.step==3, 'main-border': st.step!==3}">3</div>
+              <div class="order-title">Payment</div>
+            </div>
+            
+            <div class="step-block">
+              <div class="step circle" [ngClass]="{'main-bg': st.step==4, 'main-border': st.step!==4}">4</div>
+              <div class="order-title">Done</div>
+            </div>
+
+          </div>
+
+
+          <div class="v-space-30"></div>
+
+
+          <!-- STEPS -->
+          <!-- Step 1 -->
+          <div 
+            class="step-of-the-order"
+            [hidden]="st.step!==1">
+              <h4>Enter a phone number you want to top-up </h4>
+        
+
+              <div *ngIf="!namber_task" class="input-row">
+                <phone-input [(counter)]="st.telObj" (click)="fromInput()"></phone-input>
+                <a 
+                  class="btn btn-input-right btn-lg  btn-violet main-bg"
+                  (click)="top_up_info(false)">
+                    <i  class="fa fa-angle-right"></i>
+                </a>
+              </div>
+
+              <div *ngIf="namber_task" class="input-row">
+                <h3>{{this.st.telObj.number}}</h3>
+              </div>
+
+              
+
+              
+              <div class="v-space-30"></div>
+
+              <!-- Variant fron API -->
+              <h4  *ngIf="!st.opts.msisdn">Recharge any prepaid phone instantly</h4>
+              <div class="t-center">
+                <img *ngIf="loading" class="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+              <div *ngIf="st.opts.msisdn">
+                <h4 >Operator detected</h4>
+                <div class="col-md-4 row-card">
+                    <label for="op{{idx}}" class="new-angle main-bg operatorCard">
+                      <div class="v-space-10"></div>
+                      <div> Operator: {{st.opts.operator}}</div>
+                      <div> Country: {{st.opts.country}}</div>
+                    </label>
+                </div>
+
+                <div class="v-space-15"></div>
+                <h4 class="mid-title">Select amount</h4>
+                
+                <!-- amount -->
+                <form class="col-md-12 row-cards" >
+                  <div class="col-md-4 row-card"
+                      [ngClass]="{'_100_off': idx === st.autoChek}" 
+                      *ngFor="let lot of st.products; let idx = index;">
+
+                        <label for="am{{lot.product_id}}" class="icon-box gry-border-2 shape new-angle operatorCard">
+                          <input id="am{{lot.product_id}}" class="radioCard" type="radio" name="amGroup"  value="lot.product_id"  [checked]="idx === st.autoChek" (change)="amSelectionChange(lot)" > 
+                          <div class="v-space-10"></div>
+
+                          <div *ngIf="!lot.openRange">
+                            <h3 class="t-center">USD {{lot.price | currency:'USD':true:'1.2'}}</h3>
+                            <!-- <p *ngIf="idx === st.autoChek" class="t-center">Most popular choice</p> -->
+                          </div>
+
+                          <div *ngIf="lot.openRange">
+                            <h3 class="t-center">USD {{st.selectedRam | currency:'USD':true:'1.2'}}</h3>
+                            <div class="v-space-10"></div>
+                            <!-- <input  type="number" value="1" min="lot.openRangeMin" max="lot.openRangeMax" [(ngModel)]="st.selectedRam" (change)="setRam(ramSelector.value)"> -->
+                            <input type="number" [(ngModel)]="st.selectedRam" name="quantity" min="1" max="lot.openRangeMax" (change)="setRamNum(st.selectedRam)"/>
+                            <div class="v-space-10"></div>
+                            <br>
+                            <div class="left">{{lot.openRangeMin}}</div>
+                            <div class="right">{{lot.openRangeMax}}</div> 
+                            <input #ramSelector type="range" value="1" min="lot.openRangeMin" max="lot.openRangeMax" [(ngModel)]="range_val" (change)="setRam(ramSelector.value, idx)">
+                          </div>
+
+                        </label>                   
+                  </div>
+
+                  <div class="divider centered"><i class="fa fa-sun-o"></i></div>
+                  <div class="v-space-15"></div>
+                  <button type="button" class="btn main-bg btn-lg shape new-angle t-center big-btn" (click)="toPage(2)">Next <i class="fa fa-angle-right"></i></button>
+
+                </form> 
+
+              </div>         
+ 
+
+              
+              <!-- Variant in frontend -->
+              <!-- -- -->
+              <!-- <h4 *ngIf="st.operators.length==0">Recharge any prepaid phone instantly</h4>
+              <h4 *ngIf="st.operators.length>0">Operator detected</h4> -->
+
+              <!-- detected operators -->
+              <!-- <form #f="ngForm" class="col-md-12 row-cards" >
+                <div 
+                  *ngFor="let operator of st.operators; let idx = index;"
+                  class="col-md-4 row-card">
+                    <label for="op{{idx}}" class="new-angle main-bg operatorCard">
+                      <input id="op{{idx}}" class="radioCard" type="radio" name="opGroup"  value="idx" [checked]="idx === 0"  (change)="onSelectionChange(idx)" >
+                      <div class="v-space-10"></div>
+                      <div> {{operator.operator}}</div>
+                    </label>
+                </div>
+              </form> -->
+              
+
+
+              <div class="v-space-30"></div>
+
+              <p *ngIf="!st.opts.msisdn">
+                Ding is connected to over 400 operators in 130 countries.
+                Sending top-up to your friends and family abroad has never been easier.
+                Secure payment processing makes Ding the safest way to send minutes to mobiles from anywhere to anyone.         
+              </p>
+
+              <!-- Variant in frontend -->
+              <!-- -- -->              
+                <!-- <h4 *ngIf="st.operators.length>0">Select amount</h4> -->
+              <!-- amount -->
+              <!-- <form class="col-md-12 row-cards" 
+                    *ngIf="st.openAmount">
+                <div class="col-md-4 row-card"
+                     [ngClass]="{'_100': idx === 0}" 
+                     *ngFor="let lot of st.amountPrice; let idx = index;">
+                  <label for="am{{lot.v}}" class="icon-box gry-border-2 shape new-angle operatorCard">
+                    <input id="am{{lot.v}}" class="radioCard" type="radio" name="amGroup"  value="lot.v"  [checked]="idx === 0" (change)="amSelectionChange(lot.v)" >
+                    <div class="v-space-10"></div>
+										<h3 class="t-center">USD {{lot.summ | currency:'USD':true:'1.2'}}</h3>
+										<p *ngIf="idx === 0" class="t-center">Most popular choice</p>
+                  </label>                  
+                </div>
+
+                <div class="divider centered"><i class="fa fa-sun-o"></i></div>
+                <div class="v-space-15"></div>
+                <button type="button" class="btn main-bg btn-lg shape new-angle t-center big-btn" (click)="toPage(2)">Next <i class="fa fa-angle-right"></i></button>
+
+              </form>                 -->
+
+
+          </div>
+
+          <!-- Step 2 -->
+          <div 
+            class="step-of-the-order"
+            [hidden]="st.step!==2">
+            
+
+              <div class="pricing-tbl style-2 shape selected new-angle">
+                <h3>Order summary</h3>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Recipient</th> <!-- 1 -->
+                      <th>Operator</th>  <!-- 2 -->
+                      <th>Price</th>     <!-- 3 -->
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        {{st.telObj.number}}                                             <!-- 1 -->
+                      </td>
+                      <td>
+                        <div>
+                          {{st.opts.operator}}                                           <!-- 2 -->
+                        </div>
+                      </td>
+                      <td>
+                        {{st.checkedLot.price | currency:'USD':true:'1.2'}}              <!-- 3 -->
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Processing fee</td>
+                      <td>
+                      </td>
+                      <td>{{st.processingFee | currency:'USD':true:'1.2'}}</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>
+                        Total                                                                                                               <!-- 1 -->
+                      </td>
+                      <td>
+                                                                                                                                            <!-- 2 -->
+                      </td>
+                      <td>
+                        <span class="price-lg"> {{st.checkedLot.price + st.processingFee | currency:'USD':true:'1.2'}} </span>   <!-- 3 -->
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>    
+
+                <!-- <a class="btn btn-medium btn-grey shape new-angle">Proceed to payment</a> -->
+                <!-- <button class="btn main-bg btn-lg shape new-angle t-center" type="button">Proceed to payment</button> -->
+                
+                <div class="v-space-15" style="float: none"></div>
+                <button type="button" class="btn main-bg btn-lg shape new-angle t-center big-btn" (click)="top_up()" ><span>Proceed to payment</span> <i class="fa fa-angle-right"></i></button>
+                <div class="v-space-15" style="float: none"></div>
+
+				    	</div>
+              
+        
+
+          </div>
+            
+          
+          <!-- DEV PANEL -->
+          <!-- | -->
+          <!-- | -->
+          <div *ngIf="devMode" class="state-panel">
+            <h4>Check operator: {{st.checkOperator}}</h4>
+            <h4>state: {{st | jsonFormat}}</h4>
+          </div>
+          <!-- | -->
+          <!-- | -->
+          <!-- DEV PANEL -->
+    
+    
+        </div>
+      </div>          
+
+
+    </div>
+
+    <footer-component></footer-component>
+
+
+  </div>
+</div>
+

@@ -1,0 +1,50 @@
+@import "colors.sass";
+@import "buttons.sass";
+@import "tables.sass";
+
+
+
+// general
+
+[class*="col-md-"]     
+    @media (max-width: 992px)
+        padding: 0 15px !important
+        &:after
+            height: 0  
+
+            
+.left
+    float: left
+.right
+    float: right        
+
+// fixes
+.navbtn
+    top: 2px
+.new-nav
+    .hasChildren
+        &:hover
+            ul 
+                display: block
+        a
+            &:hover
+                color: white !important
+
+
+// cell
+.cell-row-0
+    line-height: 30px
+.cell-row
+    display: flex
+    flex-direction: row
+.cell-row-btns
+    float: right
+    .btn
+        margin: 0 0 0 8px    
+// inputs
+.cell-input
+    line-height: 26px
+    width: 100%
+    margin: 0 10px 0 0
+    padding-left: 8px
+

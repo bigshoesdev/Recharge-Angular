@@ -1,0 +1,137 @@
+<div class="pageWrapper">
+
+  <header-component classes='top-head'></header-component>
+
+  <div id="contentWrapper">
+
+    <div class="pageContent">
+
+      <div class="section welcome-section">
+        <div class="container">
+            <h2>Welcome <strong>{{currentUser.username}}</strong> !</h2>
+        </div>        
+      </div>  
+
+            
+
+      <div class="section tabs-section">
+        <div class="container">
+          <!-- Tabs Menu -->
+          <div class="tabs-style-lg tabs-style-bg">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#tab-1"> <span>App  <br class="if-more-992">info</span></a></li>
+              <li role="presentation" class="">      <a href="#tab-2"> <span>All <br class="if-more-992">users</span></a></li> 
+              <!--<li role="presentation" class="">      <a href="#tab-3"> <span>...   <br class="if-more-992">...</span></a></li>
+              <li role="presentation" class="">      <a href="#tab-4"> <span>... <br class="if-more-992">...</span></a></li>
+              <li role="presentation" class="">      <a href="#tab-5"> <span>... <br class="if-more-992">...</span></a></li> -->
+            </ul>
+          </div>
+          <!-- Tabs Pages -->
+          <div class="tab-content main-bg">
+
+
+            <!-- 1 -->
+            <div id="tab-1" role="tabpanel" class="tab-pane fade active in">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>
+                <div class="col-md-6 table-row" >
+                  <table class="table-style2" style="width:100%">
+                    
+                    <thead>
+                      <tr>
+                        <th class="main-bg">Name</th>
+                        <th class="main-bg">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let el of app_status; let even = even; let odd = odd" 
+                          [ngClass]="{ odd: odd }">
+                          <td>{{el.name}}</td>
+                          <td>{{el.value}}</td>
+                      </tr>                     										
+                    </tbody>
+                  </table>  
+                </div> 
+                <!-- <div class="v-space-30"></div> -->
+              </div>
+            </div>
+
+
+            <!-- 2 -->
+            <div id="tab-2" role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>
+                <div class="col-md-12 table-row" >
+                  <table class="table-style2" style="width:100%">
+                    
+                    <thead>
+                      <tr>
+                        <th class="main-bg">Username</th>
+                        <th class="main-bg">ID</th>
+                        <th class="main-bg">Email</th>
+                        <th class="main-bg" width="10%">Balance</th>
+                        <th class="main-bg" width="60px"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let el of all_users; let even = even; let odd = odd" 
+                          [ngClass]="{ odd: odd }">
+                          <td>{{el.username}}</td>
+                          <td>{{el._id}}</td>
+                          <td>{{el.email}}</td>
+                          <td>{{el.wallets.USD.balance}}</td>
+                          <td>
+                            <div class="cell-row-0">
+                              <div class="cell-row-btns">
+                                <a class="btn btn-md shape btn-turquoise new-angle _999-grey-bg h-red cell-btn clear" (click)="del_user(el._id)" ><i class="fa fa-trash"></i></a>
+                              </div>
+                            </div>
+                          </td>
+                      </tr>                     										
+                    </tbody>
+                  </table>  
+                </div> 
+                <!-- <div class="v-space-30"></div> -->
+              </div>
+            </div>
+
+
+            <!-- 3 -->
+            <div id="tab-3"role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>                
+                <div class="v-space-30"></div>
+              </div>
+            </div>
+
+            <!-- 4 -->
+            <div id="tab-4" role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">                
+                <div class="v-space-30"></div>
+              </div>
+            </div>
+
+
+            <!-- 5 -->
+            <div id="tab-5"role="tabpanel" class="tab-pane fade">
+              <div class="row white-bg">
+                <div class="v-space-30"></div>                
+                <div class="v-space-30"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <footer-component></footer-component>
+
+
+  </div>
+
+</div>
+
